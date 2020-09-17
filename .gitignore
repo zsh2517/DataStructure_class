@@ -1,0 +1,7 @@
+# ====== global ignore files ======
+
+# for compiled things
+*.exe
+*.o
+
+# ====== whitelist ======
