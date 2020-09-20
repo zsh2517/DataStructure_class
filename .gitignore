@@ -3,5 +3,5 @@
 # for compiled things
 *.exe
 *.o
-
+push.ps1
 # ====== whitelist ======
