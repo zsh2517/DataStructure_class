@@ -1,10 +1,29 @@
 h1 {
-    font-size: 14px!important;
+    font-size: 18.5px!important;
+    font-weight: 900;
 }
+h2 {
+    font-size: 17px!important;
+    font-weight: 750!important;
+}
+
+h3 {
+    font-size: 16px!important;
+    font-weight: 900!important;
+}
+
+h4 {
+    /* used for test points */
+    text-indent: 1em!important;
+    font-size: 16px!important;
+    font-weight: 400!important;
+}
+
 p {
-    font-size: 12px!important;
+    font-size: 16px!important;
     font-family: "宋体"!important;
-    line-height: 15px!important;
+    line-height: 20px!important;
+    text-indent: 2em;
 }
 .mume {
     left: 3cm

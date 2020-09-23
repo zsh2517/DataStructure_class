@@ -3,7 +3,7 @@
 #include <stdlib.h>
 typedef struct _node {
     struct _node* next;
-    char val;
+    char data;
 } node;
 node s1, s2;
 
@@ -17,7 +17,7 @@ node* gotonext(node* cnt) {
 
 void print(node s) {
     for(node* ptr = s.next; ptr != NULL; ptr = ptr->next) {
-        printf("%c", ptr->val);
+        printf("%c", ptr->data);
     }
     printf("\n");
 }
@@ -31,7 +31,7 @@ int main() {
     for(int i = 0; i < l1; i++) {
         ptr->next = (node*) malloc(sizeof(node));
         ptr = ptr->next;
-        ptr->val = str1[i];
+        ptr->data = str1[i];
         ptr->next = NULL;
     }
     printf("str1 is ");
@@ -40,7 +40,7 @@ int main() {
     for(int i = 0; i < l2; i++) {
         ptr->next = (node*) malloc(sizeof(node));
         ptr = ptr->next;
-        ptr->val = str2[i];
+        ptr->data = str2[i];
         ptr->next = NULL;
     }
     ptr->next = s1.next->next->next->next->next;
@@ -48,18 +48,23 @@ int main() {
     print(s2);
     node* fast = s1.next;
     node* slow = s1.next;
+    printf("--------------------    Test if have circle...    --------------------\n");
+    printf("Begin. fast is %c and slow is %c\n", fast->data, slow->data);
     while(1) {
         fast = gotonext(fast);
         fast = gotonext(fast);
         slow = gotonext(slow);
+        printf("fast=%c slow=%c\n", fast->data, slow->data);
         if(fast == slow) {
+            printf("--------------------    Find circle...    --------------------\n");
             slow = s1.next;
+            printf("fast is %c. slow returns to link_list1's head: %c\n", fast->data, slow->data);
             while(fast != slow) {
-                printf("fast=%c slow=%c\n", fast->val, slow->val);
                 fast = gotonext(fast);
                 slow = gotonext(slow);
+                printf("fast=%c slow=%c\n", fast->data, slow->data);
             }
-            printf("½»µãÎª %c\n", slow->val);
+            printf("the cross node is %c\n", slow->data);
             break;
         }
     }
